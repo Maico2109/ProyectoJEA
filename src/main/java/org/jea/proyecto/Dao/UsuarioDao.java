@@ -6,14 +6,44 @@
 package org.jea.proyecto.Dao;
 
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import org.jea.proyecto.entities.Usuario;
 
 /**
  *
  * @author sala403e15
  */
-public interface UsuarioDao {
+public class UsuarioDao {
     
-    public void agregar(Usuario usuario);
-    public List<Usuario> listar();
+     @PersistenceContext
+    EntityManager entityManager;
+
+    @Transactional
+    public void agregar(Usuario usuario) {
+        entityManager.persist(usuario);
+        entityManager.flush();
+    }
+
+    @Transactional
+    public List<Usuario> listar() {
+        List<Usuario> usuarios = entityManager.createQuery("SELECT u FROM Usuario u").getResultList();
+        return usuarios;
+    }
+
+    @Transactional
+    public Usuario buscarPorEmail (String email){
+       try{
+        Usuario usuario = entityManager.createQuery("SELECT u FROM Usuario u WHERE u.email = :email", Usuario.class)
+                
+                .setParameter("email", email).getSingleResult();
+        
+        return usuario;
+    
+    } catch(NoResultException e) {
+    return null;
+    } 
+}
 }
