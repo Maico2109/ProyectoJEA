@@ -28,8 +28,9 @@ public class LoginController {
         return "login";
     }
     
-    @RequestMapping (value= "/Login", method = RequestMethod.POST)
+    @RequestMapping (value= "/login", method = RequestMethod.POST)
     public String autenticar(@ModelAttribute("email") String email, @ModelAttribute("password") String password,HttpServletRequest request, ModelMap model){
+        model.clear();
         Usuario usuario = usuarioDao.buscarPorEmail(email);
         if(usuario != null && password.equals(usuario.getPassword())){
             HttpSession session = request.getSession();
@@ -37,11 +38,19 @@ public class LoginController {
             session.setAttribute("usuarioId", usuario.getId());
             return "redirect/";
         }else{
-            model.clear();
-            model.addAttribute("error","Email u Password incorrecto");
+            model.addAttribute("error","Email o Password incorrecto");
             return "redirect/login";
         }
     }
         
+    @RequestMapping (value= "/logout", method = RequestMethod.GET)
+    public String salir(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute("autenticado");
+        session.removeAttribute("usuarioId");
+        session.invalidate();
+        return "redirect:/login";
+        
+    }
     
 }
