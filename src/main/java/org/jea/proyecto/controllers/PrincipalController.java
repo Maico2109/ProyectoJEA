@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author Maico
  */
+@Controller
 public class PrincipalController {
     
    @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)

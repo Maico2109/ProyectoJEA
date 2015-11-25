@@ -9,12 +9,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.jea.proyecto.entities.Categoria;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author sala403e15
  */
+@Component
 public class CategoriaDao {
     
      @PersistenceContext

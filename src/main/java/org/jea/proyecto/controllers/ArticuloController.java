@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  * @author Maico
  */
+@Controller
 public class ArticuloController {
     
     @Autowired
