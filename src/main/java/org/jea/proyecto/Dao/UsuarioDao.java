@@ -11,11 +11,13 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.jea.proyecto.entities.Usuario;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author sala403e15
  */
+@Component
 public class UsuarioDao {
     
      @PersistenceContext

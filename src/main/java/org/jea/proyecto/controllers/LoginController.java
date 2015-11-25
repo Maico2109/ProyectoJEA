@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author sala403e15
  */
+
 public class LoginController {
     @Autowired
     UsuarioDao usuarioDao;

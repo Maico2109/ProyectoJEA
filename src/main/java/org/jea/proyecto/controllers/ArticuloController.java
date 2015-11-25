@@ -29,6 +29,7 @@ public class ArticuloController {
     
     @Autowired
     ArticuloDao articuloDao;
+    
     @Autowired
     CategoriaDao categoriaDao;
     
