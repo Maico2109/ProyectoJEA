@@ -5,7 +5,6 @@
  */
 package org.jea.proyecto.controllers;
 
-
 import java.util.List;
 import org.jea.proyecto.Dao.UsuarioDao;
 import org.jea.proyecto.entities.Usuario;
@@ -19,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author sala403e15
  */
-public class UsuarioControllers {
+public class UsuariosController {
+   
     private Object usuarios;
     
     @Autowired
