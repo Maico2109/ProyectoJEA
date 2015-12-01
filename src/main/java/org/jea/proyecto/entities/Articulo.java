@@ -5,6 +5,7 @@
  */
 package org.jea.proyecto.entities;
 
+import java.awt.Image;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,9 +27,21 @@ public class Articulo implements Serializable  {
     private String codigo;
     private String nombre;
     private Double valor;
+    private Image img;
     
     @ManyToOne
     private Categoria categoria;
+    
+    
+
+    public Image getImg() {
+        return img;
+    }
+
+    public void setImg(Image img) {
+        this.img = img;
+    }
+
 
     public Long getId() {
         return id;
