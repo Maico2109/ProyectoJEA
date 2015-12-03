@@ -26,6 +26,11 @@ and open the template in the editor.
                         <label>Categoría:
                             <select name="categoria_id">
                                 <option></option>
+                                <option>Tecnologia</option>
+                                <option>Vehiculos</option>
+                                <option>Hogar</option>
+                                <option>Deportes</option>
+                                <option>Cosmeticos</option>
                             </select>
                         </label>
                     </div>
@@ -35,11 +40,10 @@ and open the template in the editor.
                 </fieldset>
             </form>
         
-         <form method="POST" enctype="multipart/form-data"
-		action="/upload">
-		File to upload: <input type="file" name="file"><br /> Name: <input
-			type="text" name="name"><br /> <br /> <input type="submit"
-			value="Upload"> Press here to upload the file!
+         <form method="POST" enctype="multipart/form-data" action="/upload">
+	     Suba su archivo: <input type="file" name="file"><br /> 
+             Categoria: <input type="text" name="name"><br /> <br /> 
+             <input type="submit" value="Upload"> Presione aqui para subir archivo!
 	          </form>
         
         <div>
@@ -50,6 +54,7 @@ and open the template in the editor.
                         <th>Nombre</th>
                         <th>Categoría</th>
                         <th>Acciones</th>
+                        <th>Archivo</th>
                     </tr>
                 </thead>
                 <tbody>
