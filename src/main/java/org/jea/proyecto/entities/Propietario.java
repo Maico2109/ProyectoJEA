@@ -84,11 +84,11 @@ public class Propietario extends Usuario {
         return null;
     }
 
-    protected void setPetsInternal(Set<Usuario> usu) {
+    protected void setUsuInternal(Set<Usuario> usu) {
         
     }
 
-    public List<Usuario> getPets() {
+    public List<Usuario> getusu() {
         List<Usuario> sortedPets = new ArrayList<>(getUsuInternal());
         PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedPets);
