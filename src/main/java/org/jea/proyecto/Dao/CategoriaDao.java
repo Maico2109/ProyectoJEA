@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class CategoriaDao {
     
-     @PersistenceContext
+    @PersistenceContext
     EntityManager entityManager;
 
     @Transactional

@@ -6,10 +6,20 @@
 package org.jea.proyecto.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.beans.support.MutableSortDefinition;
+import org.springframework.beans.support.PropertyComparator;
 
 /**
  *
@@ -84,5 +94,26 @@ public class Usuario implements Serializable {
     public void setCiudad(String Ciudad) {
         this.Ciudad = Ciudad;
     }
+    
+     protected Set<Visitas> getVisitasInternal() {
+      
+         return null;
+    }
+
+    protected void setVisitasInternal(Set<Visitas> visitas) {
+        
+    }
           
+     public List<Visitas> getVisits() {
+        List<Visitas> sortedVisits = new ArrayList<>(getVisitasInternal());
+        PropertyComparator.sort(sortedVisits, new MutableSortDefinition("date", false, false));
+        return Collections.unmodifiableList(sortedVisits);
+    }
+
+    public void addVisit(Visitas visitas) {
+        getVisitasInternal().add(visitas);
+        visitas.setId(id);
+    }
+
+    
 }
