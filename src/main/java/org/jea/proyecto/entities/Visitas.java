@@ -77,8 +77,8 @@ public class Visitas extends BaseEntity {
         this.description = description;
     }
 
-    void setId(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     public void setId(Long id) {
+        
     }
     
 }
